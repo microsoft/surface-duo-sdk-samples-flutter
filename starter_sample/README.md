@@ -1,6 +1,6 @@
 # duo_flutter_sample
 
-This is the basic starter application moified to use the Surface Duo SDK and surface the information in the Flutter application.
+This is the basic starter application modified to use the Surface Duo SDK and surface the information in the Flutter application.
 
 ## Getting Started
 
