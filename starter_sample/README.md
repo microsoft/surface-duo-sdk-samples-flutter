@@ -1,10 +1,10 @@
 # duo_flutter_sample
 
-A new Flutter project.
+This is the basic starter application moified to use the Surface Duo SDK and surface the information in the Flutter application.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+For details about this application check out the blog post on the [Surface Duo Developer Blog](https://devblogs.microsoft.com/surface-duo/get-started-with-flutter-on-surface-duo/)
 
 A few resources to get you started if this is your first Flutter project:
 
