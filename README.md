@@ -1,6 +1,18 @@
+---
+page_type: sample
+name: Surface Duo - Flutter SDK samples
+languages:
+- java
+products:
+- surface-duo
+description: "Samples showing how to use the Surface Duo with for Flutter for Android app development."
+urlFragment: all
+---
 # Surface Duo Flutter samples
 
 This repo contains Flutter samples that incorporate dual-screen enhancements for the Microsoft Surface Duo.
+
+Refer the to [dual-screen docs](https://docs.microsoft.com/dual-screen/) for more information and the [Surface Duo emulator download](https://docs.microsoft.com/dual-screen/android/get-duo-sdk).
 
 ## Contributing
 
