@@ -12,6 +12,10 @@ urlFragment: all
 
 This repo contains Flutter samples that incorporate dual-screen enhancements for the Microsoft Surface Duo.
 
+The [starter_sample](starter_sample/) shows how to incorporate the Surface Duo SDK into Flutter so the device info is available in Dart. The [lightup_sample](lightup_sample/) shows how to use the device info to create a layout that adapts to the dual-screen Surface Duo:
+
+![Flutter sample with a dual-screen layout](Screenshots/flutter-lightup-300.png)
+
 Refer the to [dual-screen docs](https://docs.microsoft.com/dual-screen/) for more information and the [Surface Duo emulator download](https://docs.microsoft.com/dual-screen/android/emulator/).
 
 ## Adding dual-screen support to an existing app
