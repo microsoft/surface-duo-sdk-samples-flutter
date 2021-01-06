@@ -12,7 +12,11 @@ urlFragment: all
 
 This repo contains Flutter samples that incorporate dual-screen enhancements for the Microsoft Surface Duo.
 
-Refer the to [dual-screen docs](https://docs.microsoft.com/dual-screen/) for more information and the [Surface Duo emulator download](https://docs.microsoft.com/dual-screen/android/get-duo-sdk).
+Refer the to [dual-screen docs](https://docs.microsoft.com/dual-screen/) for more information and the [Surface Duo emulator download](https://docs.microsoft.com/dual-screen/android/emulator/).
+
+## Adding dual-screen support to an existing app
+
+In addition to the samples in this repo, the [Adding Surface Duo support to the Flokk application blog post](https://devblogs.microsoft.com/surface-duo/adding-microsoft-surface-duo-support-to-the-flokk-application/) is a good reference for adding dual-screen support.
 
 ## Contributing
 
