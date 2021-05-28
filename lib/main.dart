@@ -2,6 +2,7 @@ import 'package:dual_screen_samples/companion_pane/companion_pane.dart';
 import 'package:dual_screen_samples/dual_view_notepad/dual_view_notepad.dart';
 import 'package:dual_screen_samples/dual_view_restaurants/dual_view_restaurants.dart';
 import 'package:dual_screen_samples/hinge_angle/hinge_angle.dart';
+import 'package:dual_screen_samples/list_detail/list_detail.dart';
 import 'package:dual_screen_samples/two_page/two_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -45,6 +46,13 @@ List<SampleMeta> sampleCatalogue = [
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/hinge_angle/hinge_angle.dart',
     '/hinge-angle',
     (context) => HingeAngle(),
+  ),
+  SampleMeta(
+    'List Detail',
+    'Select an item from a list and see the details about it on the other screen.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/list_detail/list_detail.dart',
+    '/list-detail',
+    (context) => ListDetail(),
   ),
 ];
 

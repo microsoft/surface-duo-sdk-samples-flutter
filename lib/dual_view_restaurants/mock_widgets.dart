@@ -121,7 +121,7 @@ class FakeMap extends StatelessWidget {
               onMarkerSelected.call(null);
             },
             child: Image.asset(
-              'images/city_map.png',
+              'images/dual_view_restaurants/city_map.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -260,7 +260,7 @@ class RestaurantScreen extends StatelessWidget {
         ),
         pane2: Stack(
           children: [
-            Positioned.fill(child: Image.asset('images/city_map.png', fit: BoxFit.cover)),
+            Positioned.fill(child: Image.asset('images/dual_view_restaurants/city_map.png', fit: BoxFit.cover)),
             Center(
               child: Icon(
                 Icons.location_pin,

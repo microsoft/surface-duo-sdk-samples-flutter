@@ -27,7 +27,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Pestle Rock',
     description:
     'Wine bar with upscale small plates in a lofty modern space with a central wine tower & staircase.',
-    picture: 'images/pestle_rock_image.png',
+    picture: 'images/dual_view_restaurants/pestle_rock_image.png',
     type: 'Thai',
     priceRange: 3,
     rating: 4.4,
@@ -38,7 +38,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Sam\'s Pizza',
     description:
     'Take-out/delivery chain offering classic & specialty pizzas, wings & breadsticks, plus desserts.',
-    picture: 'images/sams_pizza_image.png',
+    picture: 'images/dual_view_restaurants/sams_pizza_image.png',
     type: 'American',
     priceRange: 2,
     rating: 4.9,
@@ -49,7 +49,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Sizzle and Crunch',
     description:
     'Eatery with a wood-fired oven turning out European & NW dishes in a white-&-blue cottage-like room.',
-    picture: 'images/sizzle_crunch_image.png',
+    picture: 'images/dual_view_restaurants/sizzle_crunch_image.png',
     type: 'Thai',
     priceRange: 2,
     rating: 3.9,
@@ -60,7 +60,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Cantinetta',
     description:
     'Gourmet Neapolitan pies served in a lofty space with casual, industrial-chic decor.',
-    picture: 'images/cantinetta_image.png',
+    picture: 'images/dual_view_restaurants/cantinetta_image.png',
     type: 'Italian',
     priceRange: 4,
     rating: 4.6,
@@ -71,7 +71,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Araya\'s Place',
     description:
     'Araya\'s Place is the 1st vegan-Thai restaurant in the northwest while supporting local farms.',
-    picture: 'images/arayas_place_image.png',
+    picture: 'images/dual_view_restaurants/arayas_place_image.png',
     type: 'Thai',
     priceRange: 2,
     rating: 4.6,
@@ -82,7 +82,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Kimchi Bistro',
     description:
     'Small, no frills Korean restaurant with an extensive menu served in simple digs inside a mall.',
-    picture: 'images/kimchi_bistro_image.png',
+    picture: 'images/dual_view_restaurants/kimchi_bistro_image.png',
     type: 'Korean',
     priceRange: 4,
     rating: 3.6,
@@ -93,7 +93,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Topolopompo Restaurant',
     description:
     'Compact locale with counter service dishing up classic Mediterranean eats such as hummus & falafel.',
-    picture: 'images/topolopompo_image.png',
+    picture: 'images/dual_view_restaurants/topolopompo_image.png',
     type: 'FineDine',
     priceRange: 3,
     rating: 4.5,
@@ -104,7 +104,7 @@ const List<Restaurant> restaurants_repo = [
     name: 'Morsel',
     description:
     'Homey cafe with sofas, board games & quiet corners for gourmet coffee & craft biscuit sandwiches.',
-    picture: 'images/morsel_image.png',
+    picture: 'images/dual_view_restaurants/morsel_image.png',
     type: 'Breakfast',
     priceRange: 3,
     rating: 4.7,

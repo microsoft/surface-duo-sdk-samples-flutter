@@ -44,7 +44,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
         pane1: ListPane(
           restaurants: restaurants,
           selectedRestaurant: selectedRestaurant,
-          singlePane: singleScreen,
+          singleScreen: singleScreen,
           onRestaurantTap: (index) {
             setState(() {
               this.selectedRestaurant = index;
@@ -63,7 +63,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
             });
           },
           onPopupTap: (index) => openRestaurant(context, restaurants[index]),
-          singlePane: singleScreen,
+          singleScreen: singleScreen,
         ),
         panePriority: panePriority,
       ),
@@ -81,7 +81,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
 
 /// Shows a list of restaurants.
 ///
-/// Use [singlePane] to let the widget know what if this is used alongside
+/// Use [singleScreen] to let the widget know what if this is used alongside
 /// a [MapPane] or not.
 ///   - If it is, then the selected pin is highlighted.
 ///   - If it is not, no highlighting is needed because selection is not
@@ -90,14 +90,14 @@ class ListPane extends StatefulWidget {
   final List<Restaurant> restaurants;
   final int? selectedRestaurant;
   final ValueChanged<int?> onRestaurantTap;
-  final bool singlePane;
+  final bool singleScreen;
 
   const ListPane({
     Key? key,
     required this.restaurants,
     required this.selectedRestaurant,
     required this.onRestaurantTap,
-    required this.singlePane,
+    required this.singleScreen,
   }) : super(key: key);
 
   @override
@@ -136,7 +136,7 @@ class _ListPaneState extends State<ListPane> {
         height: itemHeight,
         child: RestaurantListItem(
           restaurant: widget.restaurants[index],
-          selected: !widget.singlePane && index == widget.selectedRestaurant,
+          selected: !widget.singleScreen && index == widget.selectedRestaurant,
           onTap: () {
             widget.onRestaurantTap(index);
           },
@@ -151,7 +151,7 @@ class _ListPaneState extends State<ListPane> {
 
 /// Shows a map of restaurants.
 ///
-/// Use [singlePane] to let the widget know what if this is used alongside
+/// Use [singleScreen] to let the widget know what if this is used alongside
 /// a [ListPane] or not.
 ///  - If it is, then we rely on the list to show details about
 ///  the pin we selected.
@@ -162,7 +162,7 @@ class MapPane extends StatelessWidget {
   final int? selectedRestaurant;
   final ValueChanged<int?> onPinTap;
   final ValueChanged<int> onPopupTap;
-  final bool singlePane;
+  final bool singleScreen;
 
   const MapPane({
     Key? key,
@@ -170,7 +170,7 @@ class MapPane extends StatelessWidget {
     required this.selectedRestaurant,
     required this.onPinTap,
     required this.onPopupTap,
-    required this.singlePane,
+    required this.singleScreen,
   }) : super(key: key);
 
   @override
@@ -197,7 +197,7 @@ class MapPane extends StatelessWidget {
             },
           ),
         ),
-        if (singlePane && selectedMarker != null)
+        if (singleScreen && selectedMarker != null)
           Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
