@@ -1,4 +1,8 @@
-import 'package:dual_screen_samples/two_page.dart';
+import 'package:dual_screen_samples/companion_pane/companion_pane.dart';
+import 'package:dual_screen_samples/dual_view_notepad/dual_view_notepad.dart';
+import 'package:dual_screen_samples/dual_view_restaurants/dual_view_restaurants.dart';
+import 'package:dual_screen_samples/hinge_angle/hinge_angle.dart';
+import 'package:dual_screen_samples/two_page/two_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,17 +13,38 @@ void main() {
 List<SampleMeta> sampleCatalogue = [
   SampleMeta(
     'Two Page',
-    'A book-like reading experience with swipe gestures',
+    'A book-like reading experience. You can see two pages simultaneously.',
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/two_page/two_page.dart',
     '/two-page',
-    (context) => TwoPageSample(),
+    (context) => TwoPage(),
   ),
   SampleMeta(
-    'Two Page 2',
-    'A book-like reading experience with swipe gestures',
-    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/two_page/two_page.dart',
-    '/two-page2',
-    (context) => TwoPageSample(),
+    'Dual View Notepad',
+    'Markdown editor where you edit on one screen and preview on the other.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/dual_view_notepad/dual_view_notepad.dart',
+    '/dual-view-notepad',
+    (context) => DualViewNotepad(),
+  ),
+  SampleMeta(
+    'Dual View Restaurants',
+    'A list of restaurants on one screen and a map with pins on the other.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/dual_view_restaurants/dual_view_restaurants.dart',
+    '/dual-view-restaurants',
+    (context) => DualViewRestaurants(),
+  ),
+  SampleMeta(
+    'Companion Pane',
+    'Image editor with a preview on one screen and the filters on the other.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/companion_pane/companion_pane.dart',
+    '/companion-pane',
+    (context) => CompanionPane(),
+  ),
+  SampleMeta(
+    'Hinge Angle',
+    'Interact with the hinge hardware to see the angle change the UI.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/hinge_angle/hinge_angle.dart',
+    '/hinge-angle',
+    (context) => HingeAngle(),
   ),
 ];
 
