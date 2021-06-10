@@ -187,7 +187,6 @@ class MapPane extends StatelessWidget {
             markers: normalMarkers.map((e) => e.latLong).toList(),
             selectedMarker: selectedMarker?.latLong,
             onMarkerSelected: (index) {
-              print(index);
               if (index == null) {
                 onPinTap(null);
               } else {

@@ -45,7 +45,7 @@ class ToolsPane extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxHeight > 200 && constraints.maxWidth > 400) {
+      if (constraints.maxHeight > 250 && constraints.maxWidth > 400) {
         return LargeToolsPane();
       } else {
         return SmallToolsPane();

@@ -1,6 +1,7 @@
 import 'package:dual_screen_samples/companion_pane/companion_pane.dart';
 import 'package:dual_screen_samples/dual_view_notepad/dual_view_notepad.dart';
 import 'package:dual_screen_samples/dual_view_restaurants/dual_view_restaurants.dart';
+import 'package:dual_screen_samples/extended_canvas/extended_canvas.dart';
 import 'package:dual_screen_samples/hinge_angle/hinge_angle.dart';
 import 'package:dual_screen_samples/list_detail/list_detail.dart';
 import 'package:dual_screen_samples/two_page/two_page.dart';
@@ -21,7 +22,7 @@ List<SampleMeta> sampleCatalogue = [
   ),
   SampleMeta(
     'Dual View Notepad',
-    'Markdown editor where you edit on one screen and preview on the other.',
+    'Edit markdown on one screen and preview results on the other.',
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/dual_view_notepad/dual_view_notepad.dart',
     '/dual-view-notepad',
     (context) => DualViewNotepad(),
@@ -49,10 +50,17 @@ List<SampleMeta> sampleCatalogue = [
   ),
   SampleMeta(
     'List Detail',
-    'Select an item from a list and see the details about it on the other screen.',
+    'List of images on one screen and image details on the other screen.',
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/list_detail/list_detail.dart',
     '/list-detail',
     (context) => ListDetail(),
+  ),
+  SampleMeta(
+    'Extended Canvas',
+    'View locations on a map extended across both screens.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/extended_canvas/extended_canvas.dart',
+    '/extended-canvas',
+    (context) => ExtendedCanvas(),
   ),
 ];
 

@@ -9,38 +9,43 @@ class ListDetail extends StatefulWidget {
 
 class _ListDetailState extends State<ListDetail> {
   final List<String> images = List.generate(
-      11, (index) => 'images/list_detail/list_details_image_${index + 1}.png');
+      12, (index) => 'images/list_detail/list_details_image_${index + 1}.png');
   int? selected;
 
   @override
   Widget build(BuildContext context) {
-    bool singleScreen = MediaQuery.of(context).hinge == null;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('List Detail'),
-      ),
-      body: TwoPane(
-        pane1: ListPane(
-          images: images,
-          selected: selected,
-          onImageTap: (index) {
-            setState(() {
-              this.selected = index;
-            });
-            if (singleScreen && index != null) {
-              Navigator.of(context).push(
-                SingleScreenExclusiveRoute(
-                  builder: (context) => DetailsScreen(image: images[index]),
-                ),
-              );
-            }
-          },
-          singleScreen: singleScreen,
+    bool singleScreen = MediaQuery.of(context).hinge?.bounds?.top != 0.0;
+    print('Single screen $singleScreen');
+    return Theme(
+      data: ThemeData.dark(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('List Detail'),
         ),
-        pane2: DetailsPane(image: selected == null ? null : images[selected!]),
-        panePriority: MediaQuery.of(context).hinge != null
-            ? TwoPanePriority.both
-            : TwoPanePriority.pane1,
+        body: TwoPane(
+          pane1: ListPane(
+            images: images,
+            selected: selected,
+            onImageTap: (index) {
+              setState(() {
+                this.selected = index;
+              });
+              if (singleScreen && index != null) {
+                Navigator.of(context).push(
+                  SingleScreenExclusiveRoute(
+                    builder: (context) => DetailsScreen(image: images[index]),
+                  ),
+                );
+              }
+            },
+            singleScreen: singleScreen,
+          ),
+          pane2:
+              DetailsPane(image: selected == null ? null : images[selected!]),
+          panePriority: singleScreen
+              ? TwoPanePriority.pane1
+              : TwoPanePriority.both,
+        ),
       ),
     );
   }
@@ -103,80 +108,46 @@ class DetailsPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: image == null
-          ? Center(child: Text('Pick an image from the grid.'))
-          : Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Image.asset(image!),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 32.0),
-              child: Row(children: [
+    return image == null
+        ? Center(child: Text('Pick an image from the grid.'))
+        : Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 Expanded(
-                  child: Center(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.camera,
-                        size: 42,
-                        color: Colors.black,
-                      ),
-                      title: Text('Camera'),
-                      subtitle: Text('f/2.0 2.5mm ISO 520'),
-                    ),
-                  ),
+                  child: Image.asset(image!),
                 ),
-                Expanded(
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.camera_alt,
-                      size: 42,
-                      color: Colors.black,
-                    ),
-                    title: Text('Device'),
-                    subtitle: Text('Surface Duo'),
-                  ),
-                )
-              ]),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 32.0),
-              child: Row(children: [
-                Expanded(
-                  child: Center(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.location_pin,
-                        size: 42,
-                        color: Colors.black,
+                Padding(
+                  padding: const EdgeInsets.only(left: 32.0),
+                  child: Row(children: [
+                    Expanded(
+                      child: Center(
+                        child: ListTile(
+                          leading: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            child: Icon(Icons.camera, size: 30),
+                          ),
+                          title: Text('Camera'),
+                          subtitle: Text('f/2.0 2.5mm ISO 520'),
+                        ),
                       ),
-                      title: Text('Location'),
-                      subtitle: Text('Redmond, Washington'),
                     ),
-                  ),
+                    Expanded(
+                      child: ListTile(
+                        leading: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Icon(Icons.camera_alt, size: 30),
+                        ),
+                        title: Text('Device'),
+                        subtitle: Text('Surface Duo'),
+                      ),
+                    )
+                  ]),
                 ),
-                Expanded(
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.event,
-                      size: 42,
-                      color: Colors.black,
-                    ),
-                    title: Text('Date'),
-                    subtitle: Text('Sunday, March 25th'),
-                  ),
-                )
-              ]),
-            )
-          ],
-        ),
-      )
-    );
+              ],
+            ),
+          );
   }
 }
 
@@ -188,14 +159,17 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Image Details')),
-      body: DetailsPane(image: image),
+    return Theme(
+      data: ThemeData.dark(),
+      child: Scaffold(
+        appBar: AppBar(title: Text('Image Details')),
+        body: DetailsPane(image: image),
+      ),
     );
   }
 }
 
-/// Route that auto-removes itself if the app is unspanned.
+/// Route that auto-removes itself if the app spanned horizontally.
 class SingleScreenExclusiveRoute<T> extends MaterialPageRoute<T> {
   SingleScreenExclusiveRoute({
     required WidgetBuilder builder,
@@ -203,7 +177,7 @@ class SingleScreenExclusiveRoute<T> extends MaterialPageRoute<T> {
 
   @override
   Widget buildContent(BuildContext context) {
-    if (MediaQuery.of(context).hinge != null) {
+    if (MediaQuery.of(context).hinge?.bounds?.top == 0.0) {
       navigator?.removeRoute(this);
     }
     return super.buildContent(context);

@@ -32,7 +32,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 3,
     rating: 4.4,
     voteCount: 2303304,
-    latLong: LatLong(380, 356),
+    latLong: LatLong(0.380, 0.356),
   ),
   const Restaurant(
     name: 'Sam\'s Pizza',
@@ -43,7 +43,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 2,
     rating: 4.9,
     voteCount: 1343,
-    latLong: LatLong(280, 56),
+    latLong: LatLong(-0.280, -0.56),
   ),
   const Restaurant(
     name: 'Sizzle and Crunch',
@@ -54,7 +54,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 2,
     rating: 3.9,
     voteCount: 966,
-    latLong: LatLong(180, 216),
+    latLong: LatLong(0.180, -0.216),
   ),
   const Restaurant(
     name: 'Cantinetta',
@@ -65,7 +65,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 4,
     rating: 4.6,
     voteCount: 1322,
-    latLong: LatLong(80, 356),
+    latLong: LatLong(-0.80, 0.356),
   ),
   const Restaurant(
     name: 'Araya\'s Place',
@@ -76,7 +76,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 2,
     rating: 4.6,
     voteCount: 1322,
-    latLong: LatLong(90, 210),
+    latLong: LatLong(0.90, 0.210),
   ),
   const Restaurant(
     name: 'Kimchi Bistro',
@@ -87,7 +87,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 4,
     rating: 3.6,
     voteCount: 4565,
-    latLong: LatLong(230, 396),
+    latLong: LatLong(-0.230, -0.396),
   ),
   const Restaurant(
     name: 'Topolopompo Restaurant',
@@ -98,7 +98,7 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 3,
     rating: 4.5,
     voteCount: 6001,
-    latLong: LatLong(294, 226),
+    latLong: LatLong(0.294, -0.226),
   ),
   const Restaurant(
     name: 'Morsel',
@@ -109,6 +109,6 @@ const List<Restaurant> restaurants_repo = [
     priceRange: 3,
     rating: 4.7,
     voteCount: 787,
-    latLong: LatLong(180, 331),
+    latLong: LatLong(-0.180, 0.331),
   )
 ];

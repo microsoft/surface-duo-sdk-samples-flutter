@@ -13,74 +13,77 @@ class HingeAngle extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Hinge Angle'),
       ),
-      body: TwoPane(
-        pane1: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Table(
-                columnWidths: {
-                  0: FractionColumnWidth(0.3),
-                  1: FractionColumnWidth(0.1),
-                },
-                children: [
-                  row(
-                    Text('Variable'),
-                    Text('Value'),
-                    Text('Explanation'),
+      body: OrientationBuilder(
+        builder: (context, orientation) => TwoPane(
+          panePriority: TwoPanePriority.both,
+          direction: orientation == Orientation.landscape
+              ? Axis.horizontal
+              : Axis.vertical,
+          paneProportion: orientation == Orientation.landscape ? 0.6 : 0.4,
+          pane1: Container(
+            padding: const EdgeInsets.all(16.0),
+            alignment: Alignment.center,
+            child: Table(
+              border: TableBorder.all(color: Colors.black),
+              columnWidths: {
+                0: FractionColumnWidth(0.3),
+                1: FractionColumnWidth(0.11),
+              },
+              children: [
+                row(
+                  Text('Variable'),
+                  Text('Value'),
+                  Text('Explanation'),
+                ),
+                row(
+                  Text('MediaQuery\nposture'),
+                  Text(format(MediaQuery.of(context).displayFeatures)),
+                  Text(
+                      'The Posture is enough for most UX you want to build. This is reported only if the app is spanned.'),
+                ),
+                row(
+                  Text('DualScreenInfo.\nhasHingeAngleSensor'),
+                  FutureBuilder<bool>(
+                    future: DualScreenInfo.hasHingeAngleSensor,
+                    builder: (context, hasHingeAngleSensor) {
+                      return Text(
+                          hasHingeAngleSensor.data?.toString() ?? 'N/A');
+                    },
                   ),
-                  row(
-                    Text('MediaQuery\nposture'),
-                    Text(format(MediaQuery.of(context).displayFeatures)),
-                    Text(
-                        'The Posture is enough for most UX you want to build. This is reported only if the app is spanned.'),
+                  Text(
+                      'Both foldable and dual screen devices have hinges. Use this property to know if the device has a hinge angle sensor.'),
+                ),
+                row(
+                  Text('DualScreenInfo.\nhingeAngleEvents'),
+                  StreamBuilder<double>(
+                    stream: DualScreenInfo.hingeAngleEvents,
+                    builder: (context, hingeAngle) {
+                      return Text(
+                          hingeAngle.data?.toStringAsFixed(2) ?? 'N/A*');
+                    },
                   ),
-                  row(
-                    Text('DualScreenInfo.\nhasHingeAngleSensor'),
-                    FutureBuilder<bool>(
-                      future: DualScreenInfo.hasHingeAngleSensor,
-                      builder: (context, hasHingeAngleSensor) {
-                        return Text(
-                            hasHingeAngleSensor.data?.toString() ?? 'N/A');
-                      },
-                    ),
-                    Text(
-                        'Both foldable and dual screen devices have hinges. Use this property to know if the device has a hinge angle sensor.'),
-                  ),
-                  row(
-                    Text('DualScreenInfo.\nhingeAngleEvents'),
-                    StreamBuilder<double>(
-                      stream: DualScreenInfo.hingeAngleEvents,
-                      builder: (context, hingeAngle) {
-                        return Text(
-                            hingeAngle.data?.toStringAsFixed(2) ?? 'N/A*');
-                      },
-                    ),
-                    Text(
-                        'Stream<double> with the latest hinge angle. The angle is reported even when the app is not spanned.'),
-                  ),
-                ],
-              ),
-              Expanded(
-                  child: StreamBuilder<double>(
-                stream: DualScreenInfo.hingeAngleEvents,
-                builder: (context, hingeAngle) {
-                  if (hingeAngle.data == null) {
-                    return Center(
-                        child: Text(
-                            '* This sample shows you what the value of the hinge angle is. This requires a foldable or dual screen device or emulator. The emulator has an "Extended Controls" window where you can change the angle.'));
-                  } else {
-                    return AngleIndicator(angle: hingeAngle.data!);
-                  }
-                },
-              ))
-            ],
+                  Text(
+                      'Stream<double> with the latest hinge angle. The angle is reported even when the app is not spanned.'),
+                ),
+              ],
+            ),
+          ),
+          pane2: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: StreamBuilder<double>(
+              stream: DualScreenInfo.hingeAngleEvents,
+              builder: (context, hingeAngle) {
+                if (hingeAngle.data == null) {
+                  return Center(
+                      child: Text(
+                          '* This sample shows you what the value of the hinge angle is. This requires a foldable or dual screen device or emulator. The emulator has an "Extended Controls" window where you can change the angle.'));
+                } else {
+                  return AngleIndicator(angle: hingeAngle.data!);
+                }
+              },
+            ),
           ),
         ),
-        pane2: Container(),
-        panePriority: MediaQuery.of(context).hinge == null
-            ? TwoPanePriority.pane1
-            : TwoPanePriority.both,
       ),
     );
   }
@@ -155,14 +158,14 @@ class AngleIndicator extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                bottom: 100,
-                left: 0.0,
-                right: 0.0,
-                child: Text(
-                  '${angle.toStringAsFixed(2)}°',
-                  style: TextStyle(fontSize: 64),
-                  textAlign: TextAlign.center,
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 70.0),
+                  child: Text(
+                    '${angle.toStringAsFixed(2)}°',
+                    style: TextStyle(fontSize: 48),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               )
             ],

@@ -1,8 +1,26 @@
 import 'package:dual_screen_samples/two_page/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class TwoPage extends StatelessWidget {
+class TwoPage extends StatefulWidget {
   const TwoPage({Key? key}) : super(key: key);
+
+  @override
+  _TwoPageState createState() => _TwoPageState();
+}
+
+class _TwoPageState extends State<TwoPage> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,51 +44,62 @@ class TwoPage extends StatelessWidget {
         viewPortFraction = pageSize.width / MediaQuery.of(context).size.width;
       } else {
         // Dual-screen with screens top-and-bottom
-        final barsHeight =
-            MediaQuery.of(context).viewPadding.top + kToolbarHeight;
         pageSize = Size(MediaQuery.of(context).size.width,
-            MediaQuery.of(context).hinge!.bounds.bottom - barsHeight);
+            MediaQuery.of(context).hinge!.bounds.bottom);
         pagePadding = EdgeInsets.only(bottom: hingeSize.height);
-        lastPageSize = Size(
-            pageSize.width, pageSize.height + barsHeight - hingeSize.height);
-        lastPagePadding = EdgeInsets.only(bottom: barsHeight);
+        lastPageSize = Size(pageSize.width, pageSize.height - hingeSize.height);
+        lastPagePadding = EdgeInsets.only();
         viewPortFraction =
-            pageSize.height / (MediaQuery.of(context).size.height - barsHeight);
+            pageSize.height / (MediaQuery.of(context).size.height);
       }
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Two Page'),
-      ),
-      body: ListView(
-        scrollDirection: axis,
-        physics: PageScrollPhysics(),
-        controller: PageController(viewportFraction: viewPortFraction),
+      body: Stack(
         children: [
-          Container(
-            width: pageSize.width,
-            height: pageSize.height,
-            padding: pagePadding,
-            child: Page1(),
+          ListView(
+            scrollDirection: axis,
+            physics: PageScrollPhysics(),
+            controller: PageController(viewportFraction: viewPortFraction),
+            children: [
+              Container(
+                width: pageSize.width,
+                height: pageSize.height,
+                padding: pagePadding,
+                child: Page1(),
+              ),
+              Container(
+                width: pageSize.width,
+                height: pageSize.height,
+                padding: pagePadding,
+                child: Page2(),
+              ),
+              Container(
+                width: pageSize.width,
+                height: pageSize.height,
+                padding: pagePadding,
+                child: Page3(),
+              ),
+              Container(
+                width: lastPageSize.width,
+                height: lastPageSize.height,
+                padding: lastPagePadding,
+                child: Page4(),
+              ),
+            ],
           ),
-          Container(
-            width: pageSize.width,
-            height: pageSize.height,
-            padding: pagePadding,
-            child: Page2(),
-          ),
-          Container(
-            width: pageSize.width,
-            height: pageSize.height,
-            padding: pagePadding,
-            child: Page3(),
-          ),
-          Container(
-            width: lastPageSize.width,
-            height: lastPageSize.height,
-            padding: lastPagePadding,
-            child: Page4(),
-          ),
+          Positioned(
+            bottom: 12,
+            left: 12,
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+              mini: true,
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(Icons.arrow_back),
+            ),
+          )
         ],
       ),
     );
