@@ -2,7 +2,7 @@
 page_type: sample
 name: Surface Duo - Flutter samples
 languages:
-- java
+- dart
 products:
 - surface-duo
 description: "Samples showing how to use Flutter for building apps for the Surface Duo."
@@ -12,10 +12,10 @@ urlFragment: all
 
 This repo contains Flutter samples with enhancements for the Microsoft Surface Duo.
 
-The [design_patterns](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/) project shows how to build the [dual-screen design patterns](https://docs.microsoft.com/en-us/dual-screen/introduction#dual-screen-app-patterns)
+The [design_patterns](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/) project shows how to build the [dual-screen design patterns](https://docs.microsoft.com/en-us/dual-screen/introduction#dual-screen-app-patterns). It is one single application with the following sub-projects:
 
 | Pattern | Folder | Dual-screen screenshot| Single screen screenshot|
-| :---------: | ----------- | ----------- | ----------- |
+| :---------: | :---------: | ----------- | ----------- |
 | ![Extended Canvas design pattern](images/extended_canvas_icon.png)<br/>Extended Canvas | [extended_canvas](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/extended_canvas) | ![Flutter Extended Canvas sample in dual-screen mode](images/extended_canvas_dual.png) | ![Flutter Extended Canvas sample in single screen mode](images/extended_canvas_single.png) |
 | ![List Detail design pattern](images/list_detail_icon.png)<br/>List Detail | [list_detail](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/list_detail) | ![Flutter List Detail sample in dual-screen mode](images/list_detail_dual.png) | ![Flutter List Detail sample in single screen mode](images/list_detail_single.png) |
 | ![Two Page design pattern](images/two_page_icon.png)<br/>Two Page | [two_page](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/two_page) | ![Flutter Two Page sample in dual-screen mode](images/two_page_dual.png) | ![Flutter Two Page sample in single screen mode](images/two_page_single.png) |
