@@ -1,26 +1,31 @@
 ---
 page_type: sample
-name: Surface Duo - Flutter SDK samples
+name: Surface Duo - Flutter samples
 languages:
 - java
 products:
 - surface-duo
-description: "Samples showing how to use the Surface Duo with for Flutter for Android app development."
+description: "Samples showing how to use Flutter for building apps for the Surface Duo."
 urlFragment: all
 ---
 # Surface Duo Flutter samples
 
-This repo contains Flutter samples that incorporate dual-screen enhancements for the Microsoft Surface Duo.
+This repo contains Flutter samples with enhancements for the Microsoft Surface Duo.
 
-The [starter_sample](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/starter_sample/) shows how to incorporate the Surface Duo SDK into Flutter so the device info is available in Dart. The [lightup_sample](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/lightup_sample/) shows how to use the device info to create a layout that adapts to the dual-screen Surface Duo:
+The [design_patterns](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/) project shows how to build the [dual-screen design patterns](https://docs.microsoft.com/en-us/dual-screen/introduction#dual-screen-app-patterns)
 
-![Flutter sample with a dual-screen layout](Screenshots/flutter-lightup-300.png)
+| Pattern | Folder | Dual-screen screenshot| Single screen screenshot|
+| ----------- | ----------- | ----------- | ----------- |
+| ![Extended Canvas design pattern](images/extended_canvas_icon.png)<br/>Extended Canvas | [extended_canvas](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/extended_canvas) | ![Flutter Extended Canvas sample in dual-screen mode](images/extended_canvas_dual.png) | ![Flutter Extended Canvas sample in single screen mode](images/extended_canvas_single.png) |
+| ![List Detail design pattern](images/list_detail_icon.png)<br/>List Detail | [list_detail](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/list_detail) | ![Flutter List Detail sample in dual-screen mode](images/list_detail_dual.png) | ![Flutter List Detail sample in single screen mode](images/list_detail_single.png) |
+| ![Two Page design pattern](images/two_page_icon.png)<br/>Two Page | [two_page](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/two_page) | ![Flutter Two Page sample in dual-screen mode](images/two_page_dual.png) | ![Flutter Two Page sample in single screen mode](images/two_page_single.png) |
+| ![Dual View design pattern](images/dual_view_icon.png)<br/>Dual View<br/>Notepad | [dual_view_notepad](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/dual_view_notepad) | ![Flutter Dual View Notepad sample in dual-screen mode](images/dual_view_notepad_dual.png) | ![Flutter Dual View Notepad sample in single screen mode](images/dual_view_notepad_single.png) |
+| ![Dual View design pattern](images/dual_view_icon.png)<br/>Dual View<br/>Restaurants | [dual_view_restaurants](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/dual_view_restaurants) | ![Flutter Dual View Restaurants sample in dual-screen mode](images/dual_view_restaurants_dual.png) | ![Flutter Dual View Restaurants sample in single screen mode](images/dual_view_restaurants_single.png) |
+| ![Companion Pane design pattern](images/companion_pane_icon.png)<br/>Companion Pane | [companion_pane](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/companion_pane) | ![Flutter Companion Pane sample in dual-screen mode](images/companion_pane_dual.png) | ![Flutter Companion Pane sample in single screen mode](images/companion_pane_single.png) |
 
-Refer the to [dual-screen docs](https://docs.microsoft.com/dual-screen/) for more information and the [Surface Duo emulator download](https://docs.microsoft.com/dual-screen/android/emulator/).
+The [hinge_angle](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/lib/hinge_angle) project shows how to use the hinge angle data provided by the [dual_screen](https://pub.dev/packages/dual_screen) flutter package.
 
-## Adding dual-screen support to an existing app
-
-In addition to the samples in this repo, the [Adding Surface Duo support to the Flokk application blog post](https://devblogs.microsoft.com/surface-duo/adding-microsoft-surface-duo-support-to-the-flokk-application/) is a good reference for adding dual-screen support.
+More information, including design resources can be found in the [dual-screen docs](https://docs.microsoft.com/dual-screen/). All the screenshots are generated using the [Surface Duo emulator](https://docs.microsoft.com/dual-screen/android/emulator/).
 
 ## Contributing
 
