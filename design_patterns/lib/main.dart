@@ -14,6 +14,20 @@ void main() {
 
 List<SampleMeta> sampleCatalogue = [
   SampleMeta(
+    'Extended Canvas',
+    'View locations on a map extended across both screens.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/extended_canvas/extended_canvas.dart',
+    '/extended-canvas',
+    (context) => ExtendedCanvas(),
+  ),
+  SampleMeta(
+    'List Detail',
+    'List of images on one screen and image details on the other screen.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/list_detail/list_detail.dart',
+    '/list-detail',
+    (context) => ListDetail(),
+  ),
+  SampleMeta(
     'Two Page',
     'A book-like reading experience. You can see two pages simultaneously.',
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/two_page/two_page.dart',
@@ -47,20 +61,6 @@ List<SampleMeta> sampleCatalogue = [
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/hinge_angle/hinge_angle.dart',
     '/hinge-angle',
     (context) => HingeAngle(),
-  ),
-  SampleMeta(
-    'List Detail',
-    'List of images on one screen and image details on the other screen.',
-    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/list_detail/list_detail.dart',
-    '/list-detail',
-    (context) => ListDetail(),
-  ),
-  SampleMeta(
-    'Extended Canvas',
-    'View locations on a map extended across both screens.',
-    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/extended_canvas/extended_canvas.dart',
-    '/extended-canvas',
-    (context) => ExtendedCanvas(),
   ),
 ];
 
