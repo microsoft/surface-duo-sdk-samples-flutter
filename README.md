@@ -12,7 +12,7 @@ urlFragment: all
 
 This repo contains Flutter samples with enhancements for the Microsoft Surface Duo.
 
-The [design_patterns](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/) project shows how to build the [dual-screen design patterns](https://docs.microsoft.com/en-us/dual-screen/introduction#dual-screen-app-patterns). It is one single application with the following sub-projects:
+The [design_patterns](https://github.com/microsoft/surface-duo-sdk-samples-flutter/tree/master/design_patterns/) project shows how to build the [dual-screen design patterns](https://docs.microsoft.com/en-us/dual-screen/introduction#dual-screen-app-patterns). It is one single application that allows navigating through the following screens:
 
 | Pattern | Folder | Dual-screen screenshot| Single screen screenshot|
 | :---------: | :---------: | ----------- | ----------- |
