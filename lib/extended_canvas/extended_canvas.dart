@@ -35,12 +35,30 @@ class _ExtendedCanvasState extends State<ExtendedCanvas> {
       selectedRestaurant = index;
     });
     if (index != null) {
-      await showModalBottomSheet(context: context, builder: (context) {
-        return RestaurantDetails(restaurant: restaurants[index]);
-      }, anchorPoint: Offset(0.0, double.infinity));
+      await showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return RestaurantDetails(restaurant: restaurants[index]);
+        },
+        anchorPoint: _roughLocationOnScreen(context, index),
+      );
       setState(() {
         selectedRestaurant = null;
       });
     }
+  }
+
+  /// Restaurant latLong vary from -1 to 1 and we map that to coordinates on the
+  /// screen.
+  Offset _roughLocationOnScreen(BuildContext context, int index) {
+    if ((MediaQuery.of(context).hinge?.bounds.size.aspectRatio ?? 0) > 1) {
+      // When the hinge separates the screens top-bottom, we always use the
+      // bottom screen.
+      return Offset(0.0, 1000);
+    }
+    final restaurantLocation = restaurants[index].latLong;
+    final screenSize = MediaQuery.of(context).size;
+    return Offset((restaurantLocation.lat + 1) * screenSize.width / 2,
+        (restaurantLocation.long + 1) * screenSize.height / 2);
   }
 }

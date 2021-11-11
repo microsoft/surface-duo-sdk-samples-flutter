@@ -68,6 +68,8 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
           child: Markdown(data: data),
         ),
         panePriority: panePriority,
+        padding: EdgeInsets.only(
+            top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );
   }

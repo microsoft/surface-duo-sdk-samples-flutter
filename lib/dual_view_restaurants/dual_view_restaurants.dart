@@ -66,6 +66,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
           singleScreen: singleScreen,
         ),
         panePriority: panePriority,
+        padding: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );
   }

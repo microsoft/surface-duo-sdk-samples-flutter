@@ -15,7 +15,6 @@ class _ListDetailState extends State<ListDetail> {
   @override
   Widget build(BuildContext context) {
     bool singleScreen = MediaQuery.of(context).hinge?.bounds?.top != 0.0;
-    print('Single screen $singleScreen');
     return Theme(
       data: ThemeData.dark(),
       child: Scaffold(
@@ -42,9 +41,10 @@ class _ListDetailState extends State<ListDetail> {
           ),
           pane2:
               DetailsPane(image: selected == null ? null : images[selected!]),
-          panePriority: singleScreen
-              ? TwoPanePriority.pane1
-              : TwoPanePriority.both,
+          panePriority:
+              singleScreen ? TwoPanePriority.pane1 : TwoPanePriority.both,
+          padding: EdgeInsets.only(
+              top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),
     );

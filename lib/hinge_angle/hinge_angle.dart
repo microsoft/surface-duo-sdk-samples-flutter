@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,8 @@ class HingeAngle extends StatelessWidget {
               },
             ),
           ),
+          padding: EdgeInsets.only(
+              top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),
     );
@@ -114,25 +117,15 @@ class HingeAngle extends StatelessWidget {
   }
 
   String formatPosture(ui.DisplayFeatureState displayFeatureState) {
-    final longForm = displayFeatureState.toString();
-    if (longForm.length < 20) {
-      return longForm;
-    } else if (longForm.length < 27) {
-      return longForm.substring(20);
-    } else {
-      return longForm.substring(27);
+    switch (displayFeatureState) {
+      case DisplayFeatureState.postureFlat:
+        return 'Flat';
+      case DisplayFeatureState.postureHalfOpened:
+        return 'HalfOpened';
+      case DisplayFeatureState.unknown:
+      default:
+        return 'unknown';
     }
-    // switch (displayFeatureState) {
-    //   case DisplayFeatureState.unknown:
-    //     return 'unknown';
-    //   case DisplayFeatureState.postureFlat:
-    //     return 'Flat';
-    //   case DisplayFeatureState.postureHalfOpened:
-    //     return 'HalfOpened';
-    //   case DisplayFeatureState.postureFlipped:
-    //     return 'Flipped';
-    // }
-    // return 'unknown';
   }
 }
 

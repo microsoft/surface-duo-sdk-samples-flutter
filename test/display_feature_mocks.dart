@@ -9,8 +9,6 @@ import 'dart:ui' as ui;
 ///
 /// Clears any mock handlers that were configured for [HINGE_ANGLE_CHANNEL].
 void mockHingeAngleStream(List<double> multipleSensorValues) {
-  // const EventChannel HINGE_ANGLE_CHANNEL =
-  // EventChannel('com.microsoft.flutterdualscreen/hinge_angle');
   const StandardMethodCodec standardMethod = StandardMethodCodec();
   String channelName = 'com.microsoft.flutterdualscreen/hinge_angle';
 

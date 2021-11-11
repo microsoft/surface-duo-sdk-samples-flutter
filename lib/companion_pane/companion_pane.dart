@@ -18,6 +18,8 @@ class CompanionPane extends StatelessWidget {
           pane2: ToolsPane(),
           paneProportion: 0.7,
           direction: Axis.vertical,
+          padding: EdgeInsets.only(
+              top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),
     );
@@ -59,31 +61,29 @@ class LargeToolsPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: constraints.maxHeight,
-            ),
-            child: IntrinsicHeight(
-              child: Column(
-                children: [
-                  Spacer(flex: 10),
-                  ...tools
-                      .expand((e) => [
-                            ExpandedToolTile(tool: e),
-                            Spacer(flex: 1),
-                          ])
-                      .toList(),
-                  Spacer(flex: 10),
-                ],
-              ),
+    return LayoutBuilder(builder: (context, constraints) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: constraints.maxHeight,
+          ),
+          child: IntrinsicHeight(
+            child: Column(
+              children: [
+                Spacer(flex: 10),
+                ...tools
+                    .expand((e) => [
+                          ExpandedToolTile(tool: e),
+                          Spacer(flex: 1),
+                        ])
+                    .toList(),
+                Spacer(flex: 10),
+              ],
             ),
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }
 

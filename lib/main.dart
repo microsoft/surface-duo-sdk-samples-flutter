@@ -98,45 +98,43 @@ class SamplesList extends StatelessWidget {
         title: Text('Samples list'),
       ),
       body: TwoPane(
-        pane1: Container(
-          child: ListView.builder(
-            itemCount: sampleCatalogue.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(sampleCatalogue[index].title),
-                subtitle: Text(sampleCatalogue[index].subtitle),
-                onTap: () {
-                  Navigator.of(context).pushNamed(sampleCatalogue[index].route);
-                },
-                trailing: PopupMenuButton(
-                  itemBuilder: (BuildContext context) {
-                    return [
-                      PopupMenuItem(
-                        value: 1,
-                        child: Row(
-                          children: [
-                            Expanded(child: Text("View Code")),
-                            SizedBox(width: 16),
-                            Icon(Icons.open_in_new),
-                          ],
-                        ),
+        pane1: ListView.builder(
+          itemCount: sampleCatalogue.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(sampleCatalogue[index].title),
+              subtitle: Text(sampleCatalogue[index].subtitle),
+              onTap: () {
+                Navigator.of(context).pushNamed(sampleCatalogue[index].route);
+              },
+              trailing: PopupMenuButton(
+                itemBuilder: (BuildContext context) {
+                  return [
+                    PopupMenuItem(
+                      value: 1,
+                      child: Row(
+                        children: [
+                          Expanded(child: Text("View Code")),
+                          SizedBox(width: 16),
+                          Icon(Icons.open_in_new),
+                        ],
                       ),
-                    ];
-                  },
-                  onSelected: (_) {
-                    launch(sampleCatalogue[index].link);
-                  },
-                  child: Container(
-                    width: 48,
-                    height: 48,
-                    padding: EdgeInsets.symmetric(vertical: 4.0),
-                    alignment: Alignment.center,
-                    child: Icon(Icons.more_vert),
-                  ),
+                    ),
+                  ];
+                },
+                onSelected: (_) {
+                  launch(sampleCatalogue[index].link);
+                },
+                child: Container(
+                  width: 48,
+                  height: 48,
+                  padding: EdgeInsets.symmetric(vertical: 4.0),
+                  alignment: Alignment.center,
+                  child: Icon(Icons.more_vert),
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
         pane2: Container(),
         panePriority: MediaQuery.of(context).hinge == null
