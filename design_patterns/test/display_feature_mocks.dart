@@ -1,4 +1,5 @@
 import 'package:dual_screen/dual_screen.dart';
+import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';

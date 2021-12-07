@@ -35,7 +35,7 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -74,9 +74,9 @@ packages:
   dual_screen:
     dependency: "direct main"
     description:
-      path: "../dual_screen"
-      relative: true
-    source: path
+      name: dual_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.0.0+3"
   fake_async:
     dependency: transitive
@@ -311,11 +311,9 @@ packages:
     source: hosted
     version: "2.1.5"
   sky_engine:
-    dependency: "direct overridden"
-    description:
-      path: "/Users/andreidiaconu/work/flutter/engine/src/out/host_debug_unopt/gen/dart-pkg/sky_engine"
-      relative: false
-    source: path
+    dependency: transitive
+    description: flutter
+    source: sdk
     version: "0.0.99"
   source_span:
     dependency: transitive
@@ -358,7 +356,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.3"
+    version: "0.4.8"
   transparent_image:
     dependency: transitive
     description:
@@ -442,7 +440,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   win32:
     dependency: transitive
     description:
@@ -465,5 +463,5 @@ packages:
     source: hosted
     version: "0.2.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.0.0"

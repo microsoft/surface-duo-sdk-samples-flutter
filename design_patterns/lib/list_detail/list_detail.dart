@@ -1,3 +1,4 @@
+import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 
 class ListDetail extends StatefulWidget {
