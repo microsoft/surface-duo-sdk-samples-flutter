@@ -4,6 +4,7 @@ import 'package:dual_screen_samples/dual_view_restaurants/dual_view_restaurants.
 import 'package:dual_screen_samples/extended_canvas/extended_canvas.dart';
 import 'package:dual_screen_samples/hinge_angle/hinge_angle.dart';
 import 'package:dual_screen_samples/list_detail/list_detail.dart';
+import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:dual_screen_samples/two_page/two_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

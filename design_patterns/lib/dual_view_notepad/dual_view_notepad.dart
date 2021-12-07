@@ -1,4 +1,5 @@
 import 'package:dual_screen_samples/dual_view_notepad/data.dart';
+import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
