@@ -15,7 +15,27 @@ class _ListDetailState extends State<ListDetail> {
 
   @override
   Widget build(BuildContext context) {
-    bool singleScreen = MediaQuery.of(context).hinge?.bounds?.top != 0.0;
+    bool singleScreen = MediaQuery.of(context).hinge?.bounds?.top != 0.0 && MediaQuery.of(context).size.width < 1000;
+
+    Widget list = ListPane(
+      images: images,
+      selected: selected,
+      onImageTap: (index) {
+        setState(() {
+          this.selected = index;
+        });
+        if (singleScreen && index != null) {
+          Navigator.of(context).push(
+            SingleScreenExclusiveRoute(
+              builder: (context) => DetailsScreen(image: images[index]),
+            ),
+          );
+        }
+      },
+      singleScreen: singleScreen,
+    );
+
+    Widget details = DetailsPane(image: selected == null ? null : images[selected!]);
     return Theme(
       data: ThemeData.dark(),
       child: Scaffold(
@@ -23,27 +43,11 @@ class _ListDetailState extends State<ListDetail> {
           title: Text('List Detail'),
         ),
         body: TwoPane(
-          pane1: ListPane(
-            images: images,
-            selected: selected,
-            onImageTap: (index) {
-              setState(() {
-                this.selected = index;
-              });
-              if (singleScreen && index != null) {
-                Navigator.of(context).push(
-                  SingleScreenExclusiveRoute(
-                    builder: (context) => DetailsScreen(image: images[index]),
-                  ),
-                );
-              }
-            },
-            singleScreen: singleScreen,
-          ),
-          pane2:
-              DetailsPane(image: selected == null ? null : images[selected!]),
+          pane1: list,
+          pane2: details,
           panePriority:
               singleScreen ? TwoPanePriority.pane1 : TwoPanePriority.both,
+          paneProportion: 0.3,
           padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),

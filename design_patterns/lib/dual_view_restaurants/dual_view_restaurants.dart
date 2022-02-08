@@ -20,11 +20,38 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
 
   @override
   Widget build(BuildContext context) {
-    bool singleScreen = MediaQuery.of(context).hinge == null;
+    bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
     var panePriority = TwoPanePriority.both;
     if (singleScreen) {
       panePriority = showList ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
     }
+
+    Widget restaurantList = ListPane(
+      restaurants: restaurants,
+      selectedRestaurant: selectedRestaurant,
+      singleScreen: singleScreen,
+      onRestaurantTap: (index) {
+        setState(() {
+          this.selectedRestaurant = index;
+        });
+        if (index != null) {
+          openRestaurant(context, restaurants[index]);
+        }
+      },
+    );
+
+    Widget restaurantMap = MapPane(
+      restaurants: restaurants,
+      selectedRestaurant: selectedRestaurant,
+      onPinTap: (index) {
+        setState(() {
+          this.selectedRestaurant = index;
+        });
+      },
+      onPopupTap: (index) => openRestaurant(context, restaurants[index]),
+      singleScreen: singleScreen,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Dual View Restaurants'),
@@ -42,31 +69,10 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
         ],
       ),
       body: TwoPane(
-        pane1: ListPane(
-          restaurants: restaurants,
-          selectedRestaurant: selectedRestaurant,
-          singleScreen: singleScreen,
-          onRestaurantTap: (index) {
-            setState(() {
-              this.selectedRestaurant = index;
-            });
-            if (index != null) {
-              openRestaurant(context, restaurants[index]);
-            }
-          },
-        ),
-        pane2: MapPane(
-          restaurants: restaurants,
-          selectedRestaurant: selectedRestaurant,
-          onPinTap: (index) {
-            setState(() {
-              this.selectedRestaurant = index;
-            });
-          },
-          onPopupTap: (index) => openRestaurant(context, restaurants[index]),
-          singleScreen: singleScreen,
-        ),
+        pane1: restaurantList,
+        pane2: restaurantMap,
         panePriority: panePriority,
+        paneProportion: 0.4,
         padding: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );

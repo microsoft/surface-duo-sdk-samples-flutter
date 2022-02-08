@@ -38,6 +38,7 @@ class _ExtendedCanvasState extends State<ExtendedCanvas> {
     if (index != null) {
       await showModalBottomSheet(
         context: context,
+        constraints: BoxConstraints(maxWidth: 600),
         builder: (context) {
           return RestaurantDetails(restaurant: restaurants[index]);
         },
