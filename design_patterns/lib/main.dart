@@ -1,4 +1,5 @@
 import 'package:dual_screen_samples/companion_pane/companion_pane.dart';
+import 'package:dual_screen_samples/dialogs_demo/dialogs_demo.dart';
 import 'package:dual_screen_samples/dual_view_notepad/dual_view_notepad.dart';
 import 'package:dual_screen_samples/dual_view_restaurants/dual_view_restaurants.dart';
 import 'package:dual_screen_samples/extended_canvas/extended_canvas.dart';
@@ -62,6 +63,14 @@ List<SampleMeta> sampleCatalogue = [
     'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/hinge_angle/hinge_angle.dart',
     '/hinge-angle',
     (context) => HingeAngle(),
+  ),
+
+  SampleMeta(
+    'Dialogs Demo',
+    'Pick what screen a dialog uses on dual-screen devices.',
+    'https://github.com/microsoft/flutter-dualscreen-samples/blob/main/lib/dialogs_demo/dialogs_demo.dart',
+    '/dialogs-demo',
+        (context) => DialogsDemo(),
   ),
 ];
 

@@ -1,4 +1,5 @@
 import 'package:dual_screen_samples/companion_pane/data.dart';
+import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 
 class CompanionPane extends StatelessWidget {
@@ -6,10 +7,10 @@ class CompanionPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
     return Theme(
       data: ThemeData.dark(),
       child: Scaffold(
-        // backgroundColor: Colors.grey[900],
         appBar: AppBar(
           title: Text('Companion Pane'),
         ),
@@ -17,7 +18,7 @@ class CompanionPane extends StatelessWidget {
           pane1: PreviewPane(),
           pane2: ToolsPane(),
           paneProportion: 0.7,
-          direction: Axis.vertical,
+          direction: singleScreen ? Axis.vertical : Axis.horizontal,
           padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),

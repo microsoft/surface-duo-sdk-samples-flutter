@@ -34,7 +34,7 @@ class _TwoPageState extends State<TwoPage> {
     EdgeInsets lastPagePadding = EdgeInsets.zero;
     final isDualScreen = MediaQuery.of(context).hinge != null;
     if (isDualScreen) {
-      final Size hingeSize = MediaQuery.of(context).hinge!.bounds.size;
+      final Size hingeSize = MediaQuery.of(context).hinge?.bounds.size ?? Size.zero;
       axis = hingeSize.aspectRatio > 1.0 ? Axis.vertical : Axis.horizontal;
       if (axis == Axis.horizontal) {
         // Dual-screen with screens left-and-right
@@ -53,6 +53,15 @@ class _TwoPageState extends State<TwoPage> {
         viewPortFraction =
             pageSize.height / (MediaQuery.of(context).size.height);
       }
+    } else if (MediaQuery.of(context).size.longestSide > 1000) {
+      // Dual-screen with screens top-and-bottom
+      pageSize = Size(MediaQuery.of(context).size.width / 2,
+          MediaQuery.of(context).size.height);
+      pagePadding = EdgeInsets.zero;
+      lastPageSize = Size(pageSize.width / 2, pageSize.height);
+      lastPagePadding = EdgeInsets.zero;
+      viewPortFraction =
+          pageSize.height / (MediaQuery.of(context).size.height);
     }
     return Scaffold(
       body: Stack(

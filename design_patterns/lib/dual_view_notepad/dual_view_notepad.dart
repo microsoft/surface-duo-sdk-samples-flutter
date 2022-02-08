@@ -19,7 +19,7 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
 
   @override
   Widget build(BuildContext context) {
-    bool singleScreen = MediaQuery.of(context).hinge == null;
+    bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
     var panePriority = TwoPanePriority.both;
     if (singleScreen) {
       panePriority = editing ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
