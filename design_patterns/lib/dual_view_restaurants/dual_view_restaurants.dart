@@ -23,7 +23,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
     bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
     var panePriority = TwoPanePriority.both;
     if (singleScreen) {
-      panePriority = showList ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
+      panePriority = showList ? TwoPanePriority.start : TwoPanePriority.end;
     }
 
     Widget restaurantList = ListPane(
@@ -69,11 +69,11 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
         ],
       ),
       body: TwoPane(
-        pane1: restaurantList,
-        pane2: restaurantMap,
+        startPane: restaurantList,
+        endPane: restaurantMap,
         panePriority: panePriority,
         paneProportion: 0.4,
-        padding: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
+        inset: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );
   }

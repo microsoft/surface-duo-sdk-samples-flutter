@@ -15,7 +15,7 @@ class _ListDetailState extends State<ListDetail> {
 
   @override
   Widget build(BuildContext context) {
-    bool singleScreen = MediaQuery.of(context).hinge?.bounds?.top != 0.0 && MediaQuery.of(context).size.width < 1000;
+    bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
 
     Widget list = ListPane(
       images: images,
@@ -43,12 +43,11 @@ class _ListDetailState extends State<ListDetail> {
           title: Text('List Detail'),
         ),
         body: TwoPane(
-          pane1: list,
-          pane2: details,
-          panePriority:
-              singleScreen ? TwoPanePriority.pane1 : TwoPanePriority.both,
+          startPane: list,
+          endPane: details,
+          panePriority: TwoPanePriority.start,
           paneProportion: 0.3,
-          padding: EdgeInsets.only(
+          inset: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),
@@ -113,46 +112,49 @@ class DetailsPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return image == null
-        ? Center(child: Text('Pick an image from the grid.'))
-        : Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Image.asset(image!),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 32.0),
-                  child: Row(children: [
-                    Expanded(
-                      child: Center(
-                        child: ListTile(
-                          leading: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10.0),
-                            child: Icon(Icons.camera, size: 30),
-                          ),
-                          title: Text('Camera'),
-                          subtitle: Text('f/2.0 2.5mm ISO 520'),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ListTile(
-                        leading: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
-                          child: Icon(Icons.camera_alt, size: 30),
-                        ),
-                        title: Text('Device'),
-                        subtitle: Text('Surface Duo'),
-                      ),
-                    )
-                  ]),
-                ),
-              ],
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: image == null
+          ? Center(child: Text('Pick an image from the grid.'))
+          : Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Image.asset(image!),
             ),
-          );
+            Padding(
+              padding: const EdgeInsets.only(left: 32.0),
+              child: Row(children: [
+                Expanded(
+                  child: Center(
+                    child: ListTile(
+                      leading: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: Icon(Icons.camera, size: 30),
+                      ),
+                      title: Text('Camera'),
+                      subtitle: Text('f/2.0 2.5mm ISO 520'),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    leading: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Icon(Icons.camera_alt, size: 30),
+                    ),
+                    title: Text('Device'),
+                    subtitle: Text('Surface Duo'),
+                  ),
+                )
+              ]),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

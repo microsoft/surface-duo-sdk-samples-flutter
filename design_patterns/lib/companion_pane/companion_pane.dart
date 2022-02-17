@@ -15,11 +15,11 @@ class CompanionPane extends StatelessWidget {
           title: Text('Companion Pane'),
         ),
         body: TwoPane(
-          pane1: PreviewPane(),
-          pane2: ToolsPane(),
+          startPane: PreviewPane(),
+          endPane: ToolsPane(),
           paneProportion: 0.7,
           direction: singleScreen ? Axis.vertical : Axis.horizontal,
-          padding: EdgeInsets.only(
+          inset: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),

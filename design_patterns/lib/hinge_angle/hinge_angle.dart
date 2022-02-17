@@ -21,7 +21,7 @@ class HingeAngle extends StatelessWidget {
               ? Axis.horizontal
               : Axis.vertical,
           paneProportion: orientation == Orientation.landscape ? 0.6 : 0.4,
-          pane1: Container(
+          startPane: Container(
             padding: const EdgeInsets.all(16.0),
             alignment: Alignment.center,
             child: Table(
@@ -69,7 +69,7 @@ class HingeAngle extends StatelessWidget {
               ],
             ),
           ),
-          pane2: Padding(
+          endPane: Padding(
             padding: const EdgeInsets.all(16.0),
             child: StreamBuilder<double>(
               stream: DualScreenInfo.hingeAngleEvents,
@@ -84,7 +84,7 @@ class HingeAngle extends StatelessWidget {
               },
             ),
           ),
-          padding: EdgeInsets.only(
+          inset: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),

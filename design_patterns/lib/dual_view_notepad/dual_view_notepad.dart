@@ -22,7 +22,7 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
     bool singleScreen = MediaQuery.of(context).hinge == null && MediaQuery.of(context).size.width < 1000;
     var panePriority = TwoPanePriority.both;
     if (singleScreen) {
-      panePriority = editing ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
+      panePriority = editing ? TwoPanePriority.start : TwoPanePriority.end;
     }
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +41,7 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
         ],
       ),
       body: TwoPane(
-        pane1: DraftSavedMessage(
+        startPane: DraftSavedMessage(
           child: PaneDecorations(
             header: Text('Editor'),
             contentColor: Colors.white,
@@ -62,14 +62,14 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
             ),
           ),
         ),
-        pane2: PaneDecorations(
+        endPane: PaneDecorations(
           header: Text('Preview'),
           contentColor: Colors.transparent,
           headerColor: Colors.green[200]!,
           child: Markdown(data: data),
         ),
         panePriority: panePriority,
-        padding: EdgeInsets.only(
+        inset: EdgeInsets.only(
             top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );

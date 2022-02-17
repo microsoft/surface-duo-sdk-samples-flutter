@@ -212,10 +212,10 @@ class RestaurantScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(restaurant.name)),
       body: TwoPane(
-        pane1: RestaurantDetails(restaurant: restaurant),
-        pane2: RestaurantDetailsSecondScreen(restaurant: restaurant),
+        startPane: RestaurantDetails(restaurant: restaurant),
+        endPane: RestaurantDetailsSecondScreen(restaurant: restaurant),
         panePriority: MediaQuery.of(context).hinge == null
-            ? TwoPanePriority.pane1
+            ? TwoPanePriority.start
             : TwoPanePriority.both,
       ),
     );
