@@ -37,10 +37,16 @@ class HingeAngle extends StatelessWidget {
                   Text('Explanation'),
                 ),
                 row(
-                  Text('MediaQuery\nposture'),
-                  Text(format(MediaQuery.of(context).displayFeatures)),
+                  Text('MediaQuery\ndisplayFeatures\ntype'),
+                  Text(formatDisplayFeatureTypes(MediaQuery.of(context).displayFeatures)),
                   Text(
-                      'The Posture is enough for most UX you want to build. This is reported only if the app is spanned.'),
+                      'Can be Hinge, Fold or Cutout. Reported only if application overlaps the display feature.'),
+                ),
+                row(
+                  Text('MediaQuery\ndisplayFeatures\nstate'),
+                  Text(formatDisplayFeaturePostures(MediaQuery.of(context).displayFeatures)),
+                  Text(
+                      'Posture is the shape that the display makes. Reported only when app is spanned.'),
                 ),
                 row(
                   Text('DualScreenInfo.\nhasHingeAngleSensor'),
@@ -52,7 +58,7 @@ class HingeAngle extends StatelessWidget {
                     },
                   ),
                   Text(
-                      'Both foldable and dual screen devices have hinges. Use this property to know if the device has a hinge angle sensor.'),
+                      'Reports if the device has a hinge angle sensor, even if app is not spanned.'),
                 ),
                 row(
                   Text('DualScreenInfo.\nhingeAngleEvents'),
@@ -64,7 +70,7 @@ class HingeAngle extends StatelessWidget {
                     },
                   ),
                   Text(
-                      'Stream<double> with the latest hinge angle. The angle is reported even when the app is not spanned.'),
+                      'Latest hinge angle, reported even when the app is not spanned.'),
                 ),
               ],
             ),
@@ -108,11 +114,33 @@ class HingeAngle extends StatelessWidget {
     ]);
   }
 
-  String format(List<ui.DisplayFeature> displayFeatures) {
+  String formatDisplayFeatureTypes(List<ui.DisplayFeature> displayFeatures) {
+    if (displayFeatures.isEmpty) {
+      return 'N/A';
+    } else {
+      return displayFeatures.map((e) => formatType(e.type)).join(', ');
+    }
+  }
+
+  String formatDisplayFeaturePostures(List<ui.DisplayFeature> displayFeatures) {
     if (displayFeatures.isEmpty) {
       return 'N/A';
     } else {
       return displayFeatures.map((e) => formatPosture(e.state)).join(', ');
+    }
+  }
+
+  String formatType(ui.DisplayFeatureType displayFeatureType) {
+    switch (displayFeatureType) {
+      case DisplayFeatureType.hinge:
+        return 'Hinge';
+      case DisplayFeatureType.fold:
+        return 'Fold';
+      case DisplayFeatureType.cutout:
+        return 'Fold';
+      case DisplayFeatureType.unknown:
+      default:
+        return 'unknown';
     }
   }
 

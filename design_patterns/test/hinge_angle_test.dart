@@ -60,7 +60,7 @@ void main() {
       await tester.pumpWidget(MaterialApp(home: HingeAngle()));
 
       // Then posture and hasHingeAngleSensor are both N/A
-      expect(find.text('N/A'), findsNWidgets(2));
+      expect(find.text('N/A'), findsNWidgets(3));
       // And the stream of hinge angle values show N/A*
       expect(find.text('N/A*'), findsOneWidget);
     });
