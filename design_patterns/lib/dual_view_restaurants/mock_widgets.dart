@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/dual_view_restaurants/data.dart';
 import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';

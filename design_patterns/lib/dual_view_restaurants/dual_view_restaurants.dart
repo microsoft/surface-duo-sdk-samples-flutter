@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/dual_view_restaurants/data.dart';
 import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/cupertino.dart';
@@ -73,7 +74,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
         endPane: restaurantMap,
         panePriority: panePriority,
         paneProportion: 0.4,
-        inset: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
+        padding: EdgeInsets.only(top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );
   }

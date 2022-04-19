@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class _ListDetailState extends State<ListDetail> {
           endPane: details,
           panePriority: TwoPanePriority.start,
           paneProportion: 0.3,
-          inset: EdgeInsets.only(
+          padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/companion_pane/data.dart';
 import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class CompanionPane extends StatelessWidget {
           endPane: ToolsPane(),
           paneProportion: 0.7,
           direction: singleScreen ? Axis.vertical : Axis.horizontal,
-          inset: EdgeInsets.only(
+          padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),

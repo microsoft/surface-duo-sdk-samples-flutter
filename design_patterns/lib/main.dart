@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/companion_pane/companion_pane.dart';
 import 'package:dual_screen_samples/dialogs_demo/dialogs_demo.dart';
 import 'package:dual_screen_samples/dual_view_notepad/dual_view_notepad.dart';
@@ -147,6 +148,8 @@ class SamplesList extends StatelessWidget {
         ),
         endPane: Container(),
         panePriority: TwoPanePriority.start,
+        padding: EdgeInsets.only(
+            top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );
   }

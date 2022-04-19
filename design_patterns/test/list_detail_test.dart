@@ -58,7 +58,7 @@ void main() {
     });
 
     testWidgets(
-        'List Detail only shows the list in dual-landscape',
+        'List Detail shows both the list and details in dual-landscape',
         (WidgetTester tester) async {
       // Given a dual-screen device in dual-landscape
       mockDualScreenLandscape(tester);
@@ -68,8 +68,8 @@ void main() {
 
       // Then the list is visible
       expect(find.byType(ListPane), findsOneWidget);
-      // And the details are not visible
-      expect(find.byType(DetailsPane), findsNothing);
+      // And the details are also visible
+      expect(find.byType(DetailsPane), findsOneWidget);
     });
   });
 }

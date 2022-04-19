@@ -1,3 +1,4 @@
+import 'package:dual_screen/dual_screen.dart';
 import 'package:dual_screen_samples/dual_view_notepad/data.dart';
 import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
           child: Markdown(data: data),
         ),
         panePriority: panePriority,
-        inset: EdgeInsets.only(
+        padding: EdgeInsets.only(
             top: kToolbarHeight + MediaQuery.of(context).padding.top),
       ),
     );

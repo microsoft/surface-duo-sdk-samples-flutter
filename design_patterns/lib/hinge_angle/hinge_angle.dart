@@ -84,7 +84,7 @@ class HingeAngle extends StatelessWidget {
               },
             ),
           ),
-          inset: EdgeInsets.only(
+          padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
       ),
