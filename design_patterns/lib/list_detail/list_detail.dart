@@ -85,7 +85,7 @@ class ListPane extends StatelessWidget {
               ? null
               : BoxDecoration(
                   border: Border.all(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 4,
                   style: BorderStyle.solid,
                 )),
@@ -99,7 +99,6 @@ class ListPane extends StatelessWidget {
             ),
           ),
         );
-        return Image.asset(images[index]);
       },
       itemCount: images.length,
     );
@@ -185,7 +184,7 @@ class SingleScreenExclusiveRoute<T> extends MaterialPageRoute<T> {
 
   @override
   Widget buildContent(BuildContext context) {
-    if (MediaQuery.of(context).hinge?.bounds?.top == 0.0) {
+    if (MediaQuery.of(context).hinge?.bounds.top == 0.0) {
       navigator?.removeRoute(this);
     }
     return super.buildContent(context);
