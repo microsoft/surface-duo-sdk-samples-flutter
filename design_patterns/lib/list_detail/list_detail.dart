@@ -46,8 +46,8 @@ class _ListDetailState extends State<ListDetail> {
         body: TwoPane(
           startPane: list,
           endPane: details,
-          panePriority: TwoPanePriority.start,
-          paneProportion: 0.3,
+          panePriority: singleScreen ? TwoPanePriority.start : TwoPanePriority.both,
+          paneProportion: 0.33,
           padding: EdgeInsets.only(
               top: kToolbarHeight + MediaQuery.of(context).padding.top),
         ),
