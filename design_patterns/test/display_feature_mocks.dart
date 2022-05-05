@@ -1,5 +1,4 @@
 import 'package:dual_screen/dual_screen.dart';
-import 'package:dual_screen_samples/mediaquery_hinge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,18 +12,18 @@ void mockHingeAngleStream(List<double> multipleSensorValues) {
   const StandardMethodCodec standardMethod = StandardMethodCodec();
   String channelName = 'com.microsoft.flutterdualscreen/hinge_angle';
 
-  ServicesBinding.instance!.defaultBinaryMessenger
+  ServicesBinding.instance.defaultBinaryMessenger
       .setMockMessageHandler(channelName, (ByteData? message) async {
     final MethodCall methodCall = standardMethod.decodeMethodCall(message);
     if (methodCall.method == 'listen') {
       multipleSensorValues.forEach((element) {
-        ServicesBinding.instance!.defaultBinaryMessenger.handlePlatformMessage(
+        ServicesBinding.instance.defaultBinaryMessenger.handlePlatformMessage(
           channelName,
           standardMethod.encodeSuccessEnvelope(element),
               (ByteData? reply) {},
         );
       });
-      ServicesBinding.instance!.defaultBinaryMessenger.handlePlatformMessage(
+      ServicesBinding.instance.defaultBinaryMessenger.handlePlatformMessage(
         channelName,
         null,
             (ByteData? reply) {},
@@ -38,7 +37,7 @@ void mockHingeAngleStream(List<double> multipleSensorValues) {
   });
 
   addTearDown(() {
-    ServicesBinding.instance!.defaultBinaryMessenger
+    ServicesBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler(channelName, null);
   });
 }
