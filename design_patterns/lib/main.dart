@@ -133,7 +133,7 @@ class SamplesList extends StatelessWidget {
                   ];
                 },
                 onSelected: (_) {
-                  launch(sampleCatalogue[index].link);
+                  launchUrl(Uri.parse(sampleCatalogue[index].link));
                 },
                 child: Container(
                   width: 48,

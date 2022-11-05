@@ -56,7 +56,7 @@ class _DualViewRestaurantsState extends State<DualViewRestaurants> {
         actions: [
           if (singleScreen)
             TextButton(
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
               onPressed: () {
                 setState(() {
                   showList = !showList;

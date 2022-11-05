@@ -30,7 +30,7 @@ class _DualViewNotepadState extends State<DualViewNotepad> {
         actions: [
           if (singleScreen)
             TextButton(
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
               onPressed: () {
                 setState(() {
                   editing = !editing;
